@@ -1,0 +1,200 @@
+@import url("https://fonts.cdnfonts.com/css/minecraft-4");
+@import url("https://fonts.cdnfonts.com/css/minecraftia");
+
+@font-face {
+  font-family: Minecraft pixel;
+  src: url("/public/fonts/Minecraft_1.1.ttf") format("truetype");
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #000000;
+}
+h1 img {
+  height: 3.5em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+}
+
+.content {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  font-family: sans-serif;
+  background-size: cover;
+  background-position: center;
+}
+.header {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.header-chronicles {
+  font-family: "Minecraft", sans-serif;
+  font-size: 100px;
+  color: rgb(123, 123, 123);
+  position: relative;
+  /* Добавляем перспективу для объекта */
+  transform: perspective(200px) rotateX(20deg);
+  text-shadow: 3px 3px 0px rgb(0, 0, 0), -3px -3px 0px rgb(0, 0, 0),
+    -3px 3px 0px rgb(0, 0, 0), 3px -3px 0px rgb(0, 0, 0);
+  z-index: 2;
+}
+.shadow-rear {
+  font-family: "Minecraft", sans-serif;
+  font-size: 95px;
+  color: #000000;
+  position: absolute;
+  text-align: center;
+  z-index: 1; /* Ставим текст-тень позади */
+  transform: translateY(20px) perspective(200px) rotateX(20deg); /* Добавляем перспективу для тени */
+  /* transform: perspective(300px) rotateX(-50deg); */ /* Другая перспектива для тени */
+  text-shadow: 5px 5px 0px rgb(0, 0, 0), -5px -5px 0px rgb(0, 0, 0),
+    -5px 5px 0px rgb(0, 0, 0), 5px -5px 0px rgb(0, 0, 0);
+  user-select: none;
+}
+.glowing-text {
+  font-family: "Minecraft pixel", sans-serif;
+  font-size: 14px;
+  color: yellow;
+  text-shadow: 2px 2px 0px rgb(63, 52, 0);
+  z-index: 2;
+  position: absolute;
+  margin-left: 92%;
+  margin-top: 11%;
+  animation: pulse 0.5s infinite; /* Анимация пульсации */
+  white-space: nowrap; /* Запрет на перенос текста */
+  transform: rotate(-15deg);
+}
+
+@keyframes pulse {
+  0% {
+    font-size: 14px; /* Исходный размер */
+  }
+  50% {
+    font-size: 14.5px; /* Увеличение размера */
+  }
+  100% {
+    font-size: 14px; /* Возвращение к исходному размеру */
+  }
+}
+
+html {
+  font-family: "Minecraftia", sans-serif;
+}
+.mc-menu {
+  --btn-size: 30pt;
+  display: grid;
+  grid-template-columns: var(--btn-size) calc(var(--btn-size) * 10) var(
+      --btn-size
+    );
+  grid-template-rows: repeat(3, var(--btn-size)) 16px var(--btn-size);
+  grid-template-areas: ". first ." ". second ." ". third ." ". . ." "lang fourth .";
+  grid-gap: 8px;
+}
+
+.mc-menu .mc-button:nth-child(1) {
+  grid-area: first;
+}
+.mc-menu .mc-button:nth-child(2) {
+  grid-area: second;
+}
+.mc-menu .mc-button:nth-child(3) {
+  grid-area: third;
+}
+.mc-menu .double {
+  grid-area: fourth;
+}
+.mc-menu .double .mc-button:nth-child(1) {
+  grid-area: left;
+}
+.mc-menu .double .mc-button:nth-child(2) {
+  grid-area: right;
+}
+.mc-menu .mc-button:nth-child(5) {
+  grid-area: lang;
+}
+.mc-menu .double {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "left right";
+  grid-gap: 8px;
+}
+
+.mc-button {
+  height: var(--btn-size);
+  width: calc(var(--btn-size) * 10);
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  background: #999 url("https://i.ibb.co/rb2TWXL/bgbtn.png") center / cover;
+  image-rendering: pixelated;
+  border: 2px solid #000;
+  font-family: "Minecraftia", sans-serif;
+  /* Mouse over */
+  /* Button title */
+  /* Others */
+}
+
+.mc-button:hover .title {
+  background-color: rgba(100, 100, 255, 0.45);
+  text-shadow: 2px 2px #202013 CC;
+  color: #ffffa0;
+}
+.mc-button:active .title {
+  box-shadow: inset -2px -4px #000 4, inset 2px 2px #fff 5;
+}
+.mc-button .title {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ddd;
+  text-shadow: 2px 2px #000;
+  box-shadow: -2px -8px 0px 0px #00000065 inset, 1px 1px 0px 1px #ffffff9a inset;
+}
+
+.mc-button.full {
+  width: 100%;
+  height: 100%;
+}
+.mc-button.lang img {
+  width: 26px;
+  height: 26px;
+}
+.mc-button.lang .title {
+  padding-bottom: 0;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 1%;
+  width: 100%;
+  text-align: left;
+  color: white;
+}
