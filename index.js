@@ -76,6 +76,17 @@ const server = http.createServer((req, res) => {
       });
       res.end(data);
     });
+  } else if (req.url === "/phrases.txt") {
+    const filePath = path.join(__dirname, "phrases.txt");
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        res.writeHead(500);
+        res.end("Error");
+      } else {
+        res.writeHead(200, { "Content-Type": "text/plain" });
+        res.end(data);
+      }
+    });
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Not Found");
